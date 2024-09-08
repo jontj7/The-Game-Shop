@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Shop</title>
+    <link rel="stylesheet" href="css/Home.css"> <!-- Enlace al archivo CSS -->
+    <link rel="icon" type="image/x-icon" href="recursos/logo.png">
+
+    
+    
+</head>
+
+
+<body>
+    <div class="animated-background"></div>
+    
+    <!-- Encabezado con video -->
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="recursos/logo.png" alt="GameShop Logo">
+                <span>GameShop</span>
+            </div>
+            <form id="search-form" class="search-container">
+                <input type="text" id="search-input" name="q" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </form>
+        </div>
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="recursos/Video Head.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+            <h1>Bienvenido a GameShop</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#ultimos-lanzamientos">Ultimos Lanzamientos</a></li>
+                <li><a href="#plataformas">Plataformas</a></li>
+                <li><a href="#blog">Esports</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar el comportamiento por defecto del formulario
+            const query = document.getElementById('search-input').value.trim();
+            if (query) {
+                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+            }
+        });
+    </script>
+    
+    <main>
+        <section id="sobre-nosotros">
+            <h2>Quiénes Somos</h2>
+            <p>En GameShop, somos apasionados por los videojuegos y dedicados a ofrecerte las mejores experiencias en el mundo del gaming. 
+                Fundada en 2020, nuestra misión es conectar a los jugadores con las últimas novedades en videojuegos, consolas y accesorios,
+                 brindando un servicio excepcional y un catálogo diversificado.</p>
+
+            <h3>Nuestra Historia</h3>
+            <p>GameShop nació de la pasión por los videojuegos de un grupo de amigos que deseaban crear un lugar donde los entusiastas del 
+                gaming pudieran encontrar todo lo que necesitaban en un solo lugar. Desde nuestros humildes comienzos, hemos crecido hasta 
+                convertirnos en uno de los principales destinos para gamers, ofreciendo una amplia gama de productos y servicios.</p>
+            
+            <h3>Nuestra Misión</h3>
+            <p>Nos esforzamos por proporcionar a nuestros clientes una experiencia de compra sin igual, ofreciendo productos de alta calidad,
+                 desde las últimas consolas hasta los videojuegos más esperados. Estamos comprometidos con la satisfacción del cliente, garantizando
+                  un servicio al cliente excepcional y una experiencia de usuario inolvidable.</p>
+            
+            <h3>Nuestra Visión</h3>
+            <p>Queremos ser reconocidos como la tienda de videojuegos más confiable y completa del mercado,
+                 conocida por nuestra dedicación a la innovación y la excelencia. Nuestro objetivo es seguir expandiendo nuestro catálogo
+                  y mejorar continuamente nuestros servicios para satisfacer las necesidades de nuestros clientes.</p>
+            
+            <h3>Conoce al Equipo</h3>
+            <p>Contamos con un equipo de profesionales apasionados por los videojuegos, con experiencia en el sector
+                 y comprometidos con ofrecer el mejor servicio. Desde nuestros especialistas en productos hasta nuestro equipo de
+                  soporte al cliente, cada miembro de GameShop está aquí para ayudarte a encontrar lo que necesitas.</p>
+
+            
+        </section>
+    </main>
+
+    <!-- Sección principal -->
+    <main>
+        <section id="ultimos-lanzamientos">
+            <h2>Últimos Lanzamientos</h2>
+            <div class="gallery">
+                <div class="card">
+                    <img src="recursos/AssassinsCreedMirage.jpg" alt="Assassin’s Creed Mirage">
+                    <div class="card-info">
+                        <h3>Assassin’s Creed Mirage</h3>
+                        <p>Explora una versión vibrante y dinámica de Bagdad en esta última entrega de la serie Assassin’s Creed.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="recursos/DiabloIV.jpg" alt="Diablo IV">
+                    <div class="card-info">
+                        <h3>Diablo IV</h3>
+                        <p>Adéntrate en el oscuro mundo de Sanctuary en esta nueva entrega de la icónica serie de RPG de acción.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="recursos/TheLegendOfZelda.jpg" alt="The Legend of Zelda">
+                    <div class="card-info">
+                        <h3>The Legend of Zelda</h3>
+                        <p>Embárcate en una épica aventura en un mundo vasto y mágico con la última entrega de Legend of Zelda.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="recursos/starfield.jpg" alt="Starfield">
+                    <div class="card-info">
+                        <h3>Starfield</h3>
+                        <p>Explora el vasto universo de Starfield, el nuevo RPG espacial de Bethesda.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="recursos/HogwartsLegacy.jpg" alt="Hogwarts Legacy">
+                    <div class="card-info">
+                        <h3>Hogwarts Legacy</h3>
+                        <p>Vive una experiencia mágica en el universo de Harry Potter con esta nueva entrega.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="recursos/FinalFantasyXVI.jpg" alt="Final Fantasy XVI">
+                    <div class="card-info">
+                        <h3>Final Fantasy XVI</h3>
+                        <p>Disfruta de la última aventura en la aclamada serie Final Fantasy, llena de acción y fantasía.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="recursos/Cod.jpg" alt="Call of Duty">
+                    <div class="card-info">
+                        <h3>Call of Duty</h3>
+                        <p>Participa en intensas batallas en la última entrega de la popular serie de shooters.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="plataformas">
+            <h2>Plataformas</h2>
+            <p>Explora nuestras plataformas de videojuegos recomendadas. Desde consolas de última generación hasta PCs de alto rendimiento, te ofrecemos una variedad de opciones para disfrutar de los mejores juegos disponibles:</p>
+            
+            <div class="gallery">
+                <!-- Tarjeta PlayStation 5 -->
+                <div class="card">
+                    
+                        <img src="recursos/play5.png" alt="PlayStation 5">
+                    </a>
+                    <div class="card-info">
+                        <h3>PlayStation 5</h3>
+                        <p>La consola de última generación de Sony, destacada por su potente hardware, tiempos de carga ultrarrápidos y una biblioteca exclusiva de juegos. Disfruta de aventuras épicas con títulos como <em>Demon's Souls</em> y <em>Ratchet & Clank: Rift Apart</em>, con gráficos impresionantes y una experiencia de juego inmersiva.</p>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta Xbox Series X -->
+                <div class="card">
+                    
+                        <img src="recursos/xboxX.png" alt="Xbox Series X">
+                    </a>
+                    <div class="card-info">
+                        <h3>Xbox Series X</h3>
+                        <p>La consola de Microsoft que ofrece un rendimiento excepcional y acceso a Xbox Game Pass, una suscripción que te da acceso a una vasta colección de juegos. Juega a <em>Halo Infinite</em> y <em>Forza Horizon 5</em> con calidad 4K y soporte para 120 FPS, disfrutando de una experiencia de juego fluida y envolvente.</p>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta Nintendo Switch -->
+                <div class="card">
+                    
+                        <img src="recursos/switch.png" alt="Nintendo Switch">
+                    </a>
+                    <div class="card-info">
+                        <h3>Nintendo Switch</h3>
+                        <p>La innovadora consola híbrida de Nintendo te permite jugar en casa o en movimiento. Con títulos exclusivos como <em>The Legend of Zelda: Breath of the Wild</em> y <em>Animal Crossing: New Horizons</em>, es ideal para cualquier ocasión, ya sea en la televisión o en modo portátil.</p>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta Alienware -->
+                <div class="card">
+                    
+                        <img src="recursos/Alienware.png" alt="Alienware">
+                    </a>
+                    <div class="card-info">
+                        <h3>Alienware</h3>
+                        <p>Equipos de gaming de alto rendimiento de Dell, conocidos por su diseño futurista y potencia. Ideal para los gamers que buscan lo último en tecnología, Alienware ofrece una experiencia de juego fluida y capaz de manejar los juegos más exigentes, como <em>Battlefield 2042</em> y <em>Shadow of the Tomb Raider</em>.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="Plataformas.html" class="btn-primary">Ver más...</a>
+        
+             
+        
+
+        <section id="blog">
+            <h2>Esports</h2>
+            <p>Explora nuestro blog para conocer las últimas estrategias, torneos y noticias del mundo competitivo de los videojuegos. ¡Prepárate para mejorar tu juego con nuestros análisis y guías exclusivas!</p>
+            <div class="blog-contenedor">
+                <div class="blog-item">
+                    <img src="recursos/Fortnite.jpg" alt="Fortnite - Estrategias de Competición">
+                    <div class="blog-descripcion">
+                        <h3>Fortnite: Estrategias de Competición</h3>
+                        <p>Descubre las tácticas clave y cómo los profesionales dominan Fortnite en los torneos más importantes.</p>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <img src="recursos/Valorant.jpg" alt="Valorant - Tácticas y Equipos de Élite">
+                    <div class="blog-descripcion">
+                        <h3>Valorant: Tácticas y Equipos de Élite</h3>
+                        <p>Sumérgete en las estrategias y preparaciones de los equipos de élite en Valorant.</p>
+                    </div>
+                </div>
+                <div class="blog-item">
+                    <img src="recursos/overwatch.jpg" alt="overwatch - Juego multiplataforma de 5 vs 5">
+                    <div class="blog-descripcion">
+                        <h3>overwatch: juego multiplataforma de 5 vs 5</h3>
+                        <p>un juego de 5 contra 5 que tienen que controlar una zona.</p>
+                    </div>
+                </div>
+            </div>
+            <a href="Blog.html" class="btn-primary">Ver más...</a>
+        </section>
+
+        <section id="contacto" class="contact-section">
+    <h2>Contacto</h2>
+    <p>¿Tienes preguntas o deseas colaborar con nosotros? Estamos aquí para ayudarte. Completa el siguiente formulario para enviar un mensaje a nuestro equipo.</p>
+    
+    <form action="/enviar-mensaje" method="post" class="contact-form">
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Correo Electrónico</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="asunto">Asunto</label>
+            <input type="text" id="asunto" name="asunto" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        </div>
+        
+        <button type="submit" class="btn-primary">Enviar Mensaje</button>
+    </form>
+
+    <div class="contact-details">
+        <div class="contact-item">
+            <h3>Email</h3>
+            <p>Para consultas generales o solicitudes, envíanos un correo a <a href="mailto:contacto@gamezone.com">contacto@gamezone.com</a>. Nuestro equipo se asegurará de responderte a la brevedad.</p>
+        </div>
+        
+        <div class="contact-item">
+            <h3>Teléfono</h3>
+            <p>Para hablar directamente con nuestro equipo, llámanos al <strong>+123 456 7890</strong>.</p>
+        </div>
+    </div>
+
+    <div class="back-to-top">
+        <a href="#top" class="btn-primary">Volver Arriba</a>
+    </div>
+</section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 GameZone. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

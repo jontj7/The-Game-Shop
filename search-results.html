@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda</title>
+    <link rel="stylesheet" href="css/Home.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a href="home.html" class="logo">
+                <img src="recursos/logo.png" alt="GameShop Logo">
+                <span>GameShop</span>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section id="search-results">
+            <!-- Los resultados de búsqueda se mostrarán aquí -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 GameZone. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        // Obtener el parámetro de consulta de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q').toLowerCase();
+
+        if (query) {
+            // Lista de páginas HTML a buscar
+            const pages = ['home.html', 'plataformas.html', 'blog.html'];
+            const resultsSection = document.getElementById('search-results');
+            resultsSection.innerHTML = ''; // Limpiar resultados anteriores
+
+            // Realizar las búsquedas
+            pages.forEach(page => {
+                fetch(page)
+                    .then(response => response.text())
+                    .then(text => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(text, 'text/html');
+                        const contentElements = doc.querySelectorAll('.gallery .card'); // Seleccionar elementos relevantes
+                        contentElements.forEach(card => {
+                            const cardText = card.innerText.toLowerCase();
+                            if (cardText.includes(query)) {
+                                const title = card.querySelector('h3').innerText;
+                                const description = card.querySelector('p').innerText;
+                                const imageSrc = card.querySelector('img').src;
+                                
+                                const resultItem = document.createElement('div');
+                                resultItem.classList.add('search-result');
+                                resultItem.innerHTML = `
+                                    <div class="card">
+                                        <img src="${imageSrc}" alt="${title}">
+                                        <div class="card-info">
+                                            <h3>${title}</h3>
+                                            <p>${description}</p>
+                                        </div>
+                                    </div>
+                                `;
+                                resultsSection.appendChild(resultItem);
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error fetching page:', error))
+                    .finally(() => {
+                        // Mostrar mensaje si no se encuentran resultados después de procesar todas las páginas
+                        if (!resultsSection.querySelector('.search-result')) {
+                            resultsSection.innerHTML = '<p>No se encontraron resultados.</p>';
+                        }
+                    });
+            });
+        } else {
+            document.getElementById('search-results').innerHTML = '<p>No se encontraron resultados.</p>';
+        }
+    </script>
+</body>
+</html>

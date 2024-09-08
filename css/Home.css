@@ -1,0 +1,612 @@
+/* Encabezado con video */
+header {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e1e, #333, #555); /* Gradiente de azul a morado a rosa */
+    color: #fff; /* Color de texto blanco para contraste */
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Ajusta la altura según sea necesario */
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que el video cubra el contenedor sin distorsionarse */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+header h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #f4f4f4;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+    margin: 0;
+    text-align: center;
+}
+
+nav {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    background: linear-gradient(135deg, #8a2be2, #1e90ff, #ff69b4); /* Gradiente de morado, azul y rosa */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para el menú de navegación */
+    display: inline-block;
+    border-radius: 5px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #f4f4f4;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+nav ul li a:hover {
+    color: #1e90ff;
+    text-decoration: underline;
+}
+
+#ultimos-lanzamientos {
+    padding: 20px;
+    background: linear-gradient(135deg, #1e1e1e, #333, #555); /* Fondo oscuro con gradiente */
+    color: #f4f4f4;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea si no hay suficiente espacio */
+    gap: 20px;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+}
+
+.card {
+    position: relative;
+    width: 400px; /* Tamaño de la tarjeta */
+    height: 250px; /* Ajusta la altura según sea necesario */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #333; /* Fondo de la tarjeta */
+}
+
+.card img {
+    width: 100%;
+    height: auto; /* Asegura que la imagen mantenga su proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+    border-bottom: 5px solid rgba(0, 0, 0, 0.3); /* Borde en la parte inferior */
+    border-radius: 12px 12px 0 0; /* Bordes redondeados solo en la parte superior */
+    transition: transform 0.3s ease-in-out;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente para el texto */
+    color: #f4f4f4;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    
+}
+
+.card:hover {
+    transform: scale(1.1); /* Escala la tarjeta cuando se pasa el cursor */
+    animation: neon-border 1.5s infinite; /* Acelera la animación al pasar el cursor */
+    z-index: 2; /* Asegura que la tarjeta ampliada esté encima de las demás */
+}
+
+.card:hover img {
+    transform: scale(1.05); /* Escala la imagen al pasar el cursor */
+}
+
+.card:hover .card-info {
+    opacity: 1; /* Muestra la información al pasar el cursor */
+}
+
+.card-info h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem; /* Tamaño del título ajustado */
+}
+
+.card-info p {
+    margin: 0;
+    font-size: 1rem; /* Tamaño del texto ajustado */
+    line-height: 1.5; /* Mejora la legibilidad del texto */
+}
+
+@keyframes neon-border {
+    0% {
+        box-shadow:
+            0 0 10px #ff69b4,  /* Esquina superior izquierda */
+            10px 0 20px #1e90ff, /* Lado superior derecho */
+            -10px 0 30px #8a2be2, /* Lado inferior izquierdo */
+            0 -10px 40px #ff69b4; /* Esquina inferior derecha */
+    }
+    25% {
+        box-shadow:
+            10px 0 20px #1e90ff,  /* Mover el brillo a la derecha */
+            0 10px 20px #8a2be2,  /* Abajo */
+            -10px 0 20px #ff69b4, /* Izquierda */
+            0 -10px 20px #1e90ff; /* Arriba */
+    }
+    50% {
+        box-shadow:
+            0 10px 30px #8a2be2,  /* Mover el brillo hacia abajo */
+            -10px 0 20px #ff69b4, /* Izquierda */
+            0 -10px 30px #1e90ff, /* Arriba */
+            10px 0 20px #ff69b4;  /* Derecha */
+    }
+    75% {
+        box-shadow:
+            -10px 0 20px #ff69b4, /* Mover el brillo a la izquierda */
+            0 -10px 20px #1e90ff, /* Arriba */
+            10px 0 30px #8a2be2,  /* Derecha */
+            0 10px 20px #ff69b4;  /* Abajo */
+    }
+    100% {
+        box-shadow:
+            0 0 10px #ff69b4,  /* Regresa a la posición inicial */
+            10px 0 20px #1e90ff, 
+            -10px 0 30px #8a2be2, 
+            0 -10px 40px #ff69b4;
+    }
+}
+
+#plataformas {
+    padding: 20px;
+    background: linear-gradient(135deg, #1e1e1e, #333, #555); /* Fondo oscuro con gradiente */
+    color: #f4f4f4;
+    text-align: center;
+}
+.card {
+    position: relative;
+    width: 400px; /* Tamaño de la tarjeta, ajustado para las nuevas imágenes */
+    height: auto; /* Ajusta la altura según sea necesario */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #33333300; /* Fondo de la tarjeta */
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #333; /* Gris oscuro */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    overflow: hidden; /* Asegura que el efecto de neón no se extienda fuera del botón */
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: -8px; /* Posición ajustada para rodear el botón */
+    left: -8px; /* Posición ajustada para rodear el botón */
+    width: calc(100% + 16px); /* Tamaño ajustado para rodear el botón */
+    height: calc(100% + 16px); /* Tamaño ajustado para rodear el botón */
+    background: linear-gradient(45deg, #ff0081, #6e00ff, #00c6ff); /* Colores neón */
+    background-size: 400% 400%;
+    border-radius: 10px; /* Bordes redondeados para el resplandor */
+    z-index: -1;
+    filter: blur(12px); /* Desenfoque para el efecto neón */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Inicialmente oculto */
+    transform: scale(0.8); /* Inicialmente reducido */
+}
+
+.btn-primary:hover::before {
+    opacity: 1; /* Mostrar el efecto de neón al pasar el cursor */
+    transform: scale(1); /* Escalar el efecto de neón al tamaño completo */
+}
+
+.btn-primary:hover {
+    background-color: #555; /* Gris más claro al pasar el cursor */
+}
+
+.contact-section {
+    padding: 2rem;
+    background-color: #3d3838;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-section p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    background-color: #3d3838;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.contact-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.back-to-top {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+
+#sobre-nosotros {
+    background-color: #2c2c2c; /* Fondo oscuro para resaltar el contenido */
+    color: #e0e0e0; /* Texto en color claro para contraste */
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 1200px; /* Ajusta el ancho máximo según sea necesario */
+    text-align: center; /* Centramos todo el texto en la sección */
+}
+
+#sobre-nosotros h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #00bfff; /* Rosa neón para los títulos principales */
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.7); /* Sombra rosa neón para resaltar el texto */
+}
+
+#sobre-nosotros h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #00bfff; /* Rosa neón para los títulos principales */
+    text-shadow: 0 0 10px rgba(0, 191, 255, 0.7); /* Sombra rosa neón para resaltar el texto */
+}
+
+#sobre-nosotros p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #e0e0e0; /* Color de texto claro */
+}
+
+
+/* Estilo para el contenedor superior con logo y buscador */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #1a1a1a; /* Fondo oscuro */
+    border-bottom: 2px solid #00bfff; /* Línea inferior azul */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px; /* Ajusta según el tamaño de tu logo */
+    margin-right: 10px;
+}
+
+.logo a {
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+.logo span {
+    font-size: 2.5em; /* Tamaño grande para el texto */
+    color: #00bfff; /* Color inicial azul para el texto del logo */
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; /* Fuente tipo Netflix */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Pone el texto en mayúsculas */
+    animation: neon 6s ease-in-out infinite; /* Animación de neón */
+    text-shadow: 
+        0 0 5px #00bfff, 
+        0 0 10px #00bfff, 
+        0 0 15px #00bfff, 
+        0 0 20px #00bfff, 
+        0 0 25px #00bfff, 
+        0 0 30px #00bfff, 
+        0 0 35px #00bfff; /* Resplandor azul */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input[type="text"] {
+    padding: 8px;
+    border: 2px solid #444;
+    border-radius: 4px;
+    background: #333;
+    color: #e0e0e0;
+    font-size: 16px;
+    margin-right: 10px;
+    width: 200px;
+    transition: border-color 0.3s ease; /* Transición para el cambio de borde */
+    box-shadow: 
+        0 0 5px #00bfff, 
+        0 0 10px #00bfff; /* Resplandor azul */
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #00bfff; /* Color de borde cuando está enfocado */
+}
+
+.search-container button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #00bfff; /* Azul para el botón de búsqueda */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para el cambio de fondo y resplandor */
+    box-shadow: 
+        0 0 5px #00bfff, 
+        0 0 10px #00bfff, 
+        0 0 15px #00bfff; /* Resplandor azul */
+}
+
+.search-container button:hover {
+    background-color: #ff0081; /* Rosa neón al pasar el ratón */
+    box-shadow: 
+        0 0 5px #ff0081, 
+        0 0 10px #ff0081, 
+        0 0 15px #ff0081; /* Resplandor rosa al pasar el ratón */
+}
+
+@keyframes neon {
+    0% {
+        color: #ff0081; /* Rosa neón */
+        text-shadow: 
+            0 0 5px #ff0081, 
+            0 0 10px #ff0081, 
+            0 0 15px #ff0081, 
+            0 0 20px #ff0081;
+    }
+    50% {
+        color: #00bfff; /* Azul neón */
+        text-shadow: 
+            0 0 5px #00bfff, 
+            0 0 10px #00bfff, 
+            0 0 15px #00bfff, 
+            0 0 20px #00bfff;
+    }
+    100% {
+        color: #a020f0; /* Morado neón */
+        text-shadow: 
+            0 0 5px #a020f0, 
+            0 0 10px #a020f0, 
+            0 0 15px #a020f0, 
+            0 0 20px #a020f0;
+    }
+}
+
+/* blog */
+.blog {
+    text-align: center;
+    padding: 20px;
+}
+
+.blog-contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan si no hay suficiente espacio */
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.blog-item {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra de neón más sutil */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #333; /* Fondo de la tarjeta */
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-item img {
+    width: 100%;
+    height: auto; /* Asegura que la imagen mantenga su proporción */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+    border-bottom: 5px solid rgba(0, 0, 0, 0.3); /* Borde en la parte inferior */
+    border-radius: 12px 12px 0 0; /* Bordes redondeados solo en la parte superior */
+    transition: transform 0.3s ease-in-out;
+}
+
+.blog-item:hover {
+    transform: scale(1.05); /* Escala la tarjeta cuando se pasa el cursor */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 1); /* Sombra de neón intensa */
+    animation: neon-border 1.5s infinite; /* Efecto de borde neón animado */
+    z-index: 2; /* Asegura que la tarjeta ampliada esté encima de las demás */
+}
+
+@keyframes neon-border {
+    0% {
+        box-shadow:
+            0 0 10px #ff69b4,  /* Rosa */
+            0 0 15px #ff69b4,
+            0 0 20px #ff69b4,
+            0 0 25px #ff69b4;
+    }
+    25% {
+        box-shadow:
+            0 0 10px #1e90ff,  /* Azul */
+            0 0 15px #1e90ff,
+            0 0 20px #1e90ff,
+            0 0 25px #1e90ff;
+    }
+    50% {
+        box-shadow:
+            0 0 10px #8a2be2,  /* Morado */
+            0 0 15px #8a2be2,
+            0 0 20px #8a2be2,
+            0 0 25px #8a2be2;
+    }
+    75% {
+        box-shadow:
+            0 0 10px #ff69b4,  /* Rosa */
+            0 0 15px #ff69b4,
+            0 0 20px #ff69b4,
+            0 0 25px #ff69b4;
+    }
+    100% {
+        box-shadow:
+            0 0 10px #1e90ff,  /* Azul */
+            0 0 15px #1e90ff,
+            0 0 20px #1e90ff,
+            0 0 25px #1e90ff;
+    }
+}
+
+.blog-descripcion {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente para el texto */
+    color: #0ff; /* Texto en color neón */
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 0 0 12px 12px; /* Bordes redondeados en la parte inferior */
+}
+
+.blog-descripcion h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem; /* Tamaño del título ajustado */
+}
+
+.blog-descripcion p {
+    margin: 0;
+    font-size: 1rem; /* Tamaño del texto ajustado */
+    line-height: 1.5; /* Mejora la legibilidad del texto */
+}
+
+#blog {
+    padding: 20px;
+    background: linear-gradient(135deg, #1e1e1e, #333, #555); /* Fondo oscuro con gradiente */
+    color: #f4f4f4;
+    text-align: center;
+}
+
